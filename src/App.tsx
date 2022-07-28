@@ -2,10 +2,11 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { Home, About, Store } from './pages';
 import { Navbar } from './components';
+import { ShoppingCartProvider } from './context/ShoppingCartContex';
 
 function App() {
   return (
-    <>
+    <ShoppingCartProvider>
       <Navbar />
       <Container className='mb-5'>
         <Routes>
@@ -16,7 +17,7 @@ function App() {
           <Route path='/*' element={<Navigate to='/' />} />
         </Routes>
       </Container>
-    </>
+    </ShoppingCartProvider>
   );
 }
 
